@@ -1,7 +1,9 @@
+require "rails_helper"
+
 describe "Welcome spec", type: :request do
-  describe "GET /welcome" do
+  describe "GET /events" do
     it "should return 401 unauthorized when authentication header is not provided" do
-      get(welcome_index_path)
+      get welcome_index_path
       expect(response.status).to eq 401
     end
     context "with the correct authentication header" do
@@ -10,7 +12,7 @@ describe "Welcome spec", type: :request do
       it "should return with correct status code and respond with serialized user data" do
         get(welcome_index_path, headers: {'Authorization': user.id})
         expect(response.status).to eq 200
-        expect(response_data_attributes["first_name"]).to eq(user.first_name)
+        expect(response_data['attributes']["first_name"]).to eq(user.first_name)
       end
     end
   end

@@ -9,10 +9,9 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
--- Comment these two lines out if you are running an older version of PostgreSQL
 SET default_tablespace = '';
+
 SET default_table_access_method = heap;
--- End comment
 
 --
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
