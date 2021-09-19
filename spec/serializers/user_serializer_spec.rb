@@ -6,10 +6,13 @@ RSpec.describe UserSerializer do
   subject { described_class.new(user, { params: { query_type: query_type}}).serializable_hash }
 
   let!(:user) { create(:user) }
+  let!(:user2) { create(:user) }
   let(:query_type) { 'by_active_meets' }
+  let!(:event) { create(:event) }
+  let!(:meeting) { create(:meeting, event_id: event.id, requester_id: user.id, receiver_id: user2.id) }
+  let!(:timeslot) { create(:timeslot, event_id: event.id) }
+  let!(:timeslot2) { create(:timeslot, event_id: event.id) }
   let!(:timeslot_bookmark) { create(:timeslot_bookmark, timeslot_id: timeslot.id, user_id: user.id) }
-  let!(:timeslot) { create(:timeslot, event_id: 1) }
-  let!(:timeslot2) { create(:timeslot, event_id: 1) }
   let(:expected_result) do
     {
       data:
