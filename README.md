@@ -42,3 +42,8 @@ In Brella's context, there can be:
 - If you would have one week to implement some of those solutions, which would you pick and why?
   - Remember: This task is quite abstract, and there's no right answer.
 
+## Task 2 answers:
+- The problem I'm so sad about is the simple lack time :(
+- Models dependencies are not making it easy to create queries. (Probably makes sense to re-think the database structure)
+- I've implemented basic caching for UserSerializer but maybe it also makes sense to use pagination(offset and per-page) if there are so many objects in the database.
+- Materialized views is something I would like to try if I had one week.
